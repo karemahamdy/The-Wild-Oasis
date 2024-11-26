@@ -6,7 +6,7 @@ import Image from "next/image";
 export default async function Page({ params }) {
   const cabin = await getCabin(params.cabinId);
 
-  const { id, name, maxCapacity, regularPrice, discount, image, description } =
+  const { name, maxCapacity, image, description } =
     cabin;
 
   return (
