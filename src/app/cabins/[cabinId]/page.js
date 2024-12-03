@@ -12,8 +12,8 @@ export default async function Page({ params }) {
   return (
     <div className="max-w-6xl mx-auto mt-8">
       <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
-        <div className="relative scale-[1.15] -translate-x-3">
-          <Image objectFit="cover" layout="fill" src={image} alt={`Cabin ${name}`} />
+        <div className="relative scale-[1.15] -translate-x-3 w-full h-full">
+          <Image width={1000} height={100} objectFit="cover" className="h-full" src={image} alt={`Cabin ${name}`} />
         </div>
 
         <div>
