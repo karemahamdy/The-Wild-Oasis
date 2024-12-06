@@ -6,7 +6,7 @@ export default async function  CabinList() {
   const cabins = await getCabins()
 
   if (!cabins.length === 0) return null
-  console.log(cabins)
+
   
   return (
     <div>
