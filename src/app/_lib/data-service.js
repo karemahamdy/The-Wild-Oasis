@@ -105,7 +105,6 @@ export async function getBookedDatesByCabinId(cabinId) {
   today.setUTCHours(4, 0, 0, 0);
   today = today.toISOString();
 
-  // Getting all bookings
   const { data, error } = await supabase
     .from("Bookings")
     .select("*")
@@ -117,7 +116,7 @@ export async function getBookedDatesByCabinId(cabinId) {
     throw new Error("Bookings could not get loaded");
   }
 
-  // Converting to actual dates to be displayed in the date picker
+  
   const bookedDates = data
     .map((booking) => {
       return eachDayOfInterval({
@@ -132,8 +131,6 @@ export async function getBookedDatesByCabinId(cabinId) {
 
 export async function getSettings() {
   const { data, error } = await supabase.from("Settings").select("*").single();
-
-  // await new Promise((res) => setTimeout(res, 5000));
 
   if (error) {
     console.error(error);
@@ -155,8 +152,7 @@ export async function getCountries() {
   }
 }
 
-/////////////
-// CREATE
+
 
 export async function createGuest(newGuest) {
   const { data, error } = await supabase.from("Guests").insert([newGuest]);
@@ -173,7 +169,7 @@ export async function createBooking(newBooking) {
   const { data, error } = await supabase
     .from("Bookings")
     .insert([newBooking])
-    // So that the newly created object gets returned!
+  
     .select()
     .single();
 
@@ -185,10 +181,7 @@ export async function createBooking(newBooking) {
   return data;
 }
 
-/////////////
-// UPDATE
 
-// The updatedFields is an object which should ONLY contain the updated data
 export async function updateGuest(id, updatedFields) {
   const { data, error } = await supabase
     .from("Guests")
@@ -219,8 +212,7 @@ export async function updateBooking(id, updatedFields) {
   return data;
 }
 
-/////////////
-// DELETE
+
 
 export async function deleteBooking(id) {
   const { data, error } = await supabase.from("Bookings").delete().eq("id", id);
