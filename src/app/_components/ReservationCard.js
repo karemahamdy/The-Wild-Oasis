@@ -23,7 +23,7 @@ function ReservationCard({ booking }) {
   } = booking;
 
   return (
-    <div className="flex border border-primary-800">
+    <div className="flex border border-primary-800 mx-1 my-2">
       <div className="relative h-32 aspect-square">
         <img
           src={image}
@@ -68,7 +68,7 @@ function ReservationCard({ booking }) {
         </div>
       </div>
 
-      <div className="flex flex-col border-l border-primary-800 w-[100px]">
+      <div className="flex flex-col border-l border-primary-800 w-[100px] ">
         <a
           href={`/account/reservations/edit/${id}`}
           className="group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900"

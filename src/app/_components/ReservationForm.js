@@ -1,13 +1,13 @@
 "use client";
 
-// import { useReservation } from "./ReservationContext";
+import { useReservation } from "./ReservationContext";
 
 function ReservationForm({ cabin }) {
-  // const { range } = useReservation();
+  const { range } = useReservation();
   const { maxCapacity } = cabin;
 
   return (
-    <div className="scale-[1.01]">
+    <div className="scale-[1.01] mt-4 p-2">
       <div className="bg-primary-800 text-primary-300 px-16 py-2 flex justify-between items-center">
         <p>Logged in as</p>
 
@@ -24,7 +24,7 @@ function ReservationForm({ cabin }) {
       </div>
 
       <p>
-        {/* {String(range.from)} to {String(range.to)} */}
+        {String(range.from)} to {String(range.to)}
       </p>
 
       <form className="bg-primary-900 py-10 px-16 text-lg flex gap-5 flex-col">

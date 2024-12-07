@@ -9,13 +9,13 @@ async function Reservation({ cabin }) {
   ]);
 
   return (
-    <div className="grid grid-cols-2 border border-primary-800 min-h-[400px]">
+    <div className="grid  border border-primary-800 min-h-[400px]  mt-8">
       <DateSelector
         settings={settings}
         bookedDates={bookedDates}
         cabin={cabin}
       />
-      {/* <ReservationForm cabin={cabin} /> */}
+      <ReservationForm cabin={cabin} />
     </div>
   );
 }
