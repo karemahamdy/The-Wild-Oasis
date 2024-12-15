@@ -67,16 +67,7 @@ export async function deleteBooking(bookingId) {
 export async function updateBooking(formData) {
   const bookingId = Number(formData.get("bookingId"));
 
-  // 1) Authentication
-  const session = await auth();
-  if (!session) throw new Error("You must be logged in");
 
-  // 2) Authorization
-  const guestBookings = await getBookings(session.user.guestId);
-  const guestBookingIds = guestBookings.map((booking) => booking.id);
-
-  if (!guestBookingIds.includes(bookingId))
-    throw new Error("You are not allowed to update this booking");
 
   // 3) Building update data
   const updateData = {
@@ -86,7 +77,7 @@ export async function updateBooking(formData) {
 
   // 4) Mutation
   const { error } = await supabase
-    .from("bookings")
+    .from("Bookings")
     .update(updateData)
     .eq("id", bookingId)
     .select()
@@ -96,11 +87,11 @@ export async function updateBooking(formData) {
   if (error) throw new Error("Booking could not be updated");
 
   // 6) Revalidation
-  revalidatePath(`/account/reservations/edit/${bookingId}`);
-  revalidatePath("/account/reservations");
+  revalidatePath(`/accounts/reservations/edit/${bookingId}`);
+  revalidatePath("/accounts/reservations");
 
   // 7) Redirecting
-  redirect("/account/reservations");
+  redirect("/accounts/reservations");
 }
 
 export async function signInAction() {
