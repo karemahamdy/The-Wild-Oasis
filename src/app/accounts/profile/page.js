@@ -24,6 +24,7 @@ export default function Page() {
         <div className="space-y-2">
           <label>Full name</label>
           <input
+            placeholder="Karema Hamdy"
             disabled
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
           />
@@ -32,6 +33,7 @@ export default function Page() {
         <div className="space-y-2">
           <label>Email address</label>
           <input
+            placeholder="karema@gmail.com"
             disabled
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
           />
